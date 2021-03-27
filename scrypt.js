@@ -5,12 +5,25 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 //console.log(ctx);
+// window.addEventListener('resize', () => {
+//   canvas.width = window.innerWidth;
+//   canvas.height = window.innerHeight;
+//   ctx.fillStyle = 'white';
+//   ctx.fillRect(10, 20, 50, 150);
+// });
+
+// ctx.fillStyle = 'white';
+// ctx.fillRect(10, 20, 50, 150);
+
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  ctx.fillStyle = 'white';
-  ctx.fillRect(10, 20, 50, 150);
 });
+ctx.fillStyle = 'blue';
+ctx.strokeStyle = 'red';
+ctx.lineWidth = 5;
+ctx.beginPath();
 
-ctx.fillStyle = 'white';
-ctx.fillRect(10, 20, 50, 150);
+ctx.arc(300, 500, 50, 0, Math.PI * 2);
+ctx.stroke();
+ctx.fill();
