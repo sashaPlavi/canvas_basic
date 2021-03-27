@@ -21,15 +21,17 @@ window.addEventListener('resize', () => {
 });
 
 const mouse = {
-  x: null,
-  y: null,
+  x: undefined,
+  y: undefined,
 };
-console.log('bla');
+
 canvas.addEventListener('click', function (event) {
   mouse.x = event.x;
   mouse.y = event.y;
-  console.log(event);
-  drowCircle();
+});
+canvas.addEventListener('mousemove', function (event) {
+  mouse.x = event.x;
+  mouse.y = event.y;
 });
 
 function drowCircle() {
@@ -42,3 +44,12 @@ function drowCircle() {
   ctx.stroke();
   ctx.fill();
 }
+
+//cleating loop
+function animate() {
+  //ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drowCircle();
+  requestAnimationFrame(animate);
+}
+
+animate();
