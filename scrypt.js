@@ -19,11 +19,26 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
-ctx.fillStyle = 'blue';
-ctx.strokeStyle = 'red';
-ctx.lineWidth = 5;
-ctx.beginPath();
 
-ctx.arc(300, 500, 50, 0, Math.PI * 2);
-ctx.stroke();
-ctx.fill();
+const mouse = {
+  x: null,
+  y: null,
+};
+console.log('bla');
+canvas.addEventListener('click', function (event) {
+  mouse.x = event.x;
+  mouse.y = event.y;
+  console.log(event);
+  drowCircle();
+});
+
+function drowCircle() {
+  ctx.fillStyle = 'blue';
+  ctx.strokeStyle = 'red';
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+
+  ctx.arc(mouse.x, mouse.y, 50, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.fill();
+}
